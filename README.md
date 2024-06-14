@@ -9,3 +9,9 @@ This software was used inside UCL's Trusted Research Environment (the [Data Safe
 To review the code, please see the `gitlab` [branch of this repository](https://github.com/edlowther/minimization/tree/gitlab).
 
 Full details on how to configure an instance of GitLab to run this code will be published here in due course, along with a separate branch containing an alternative version of the software that can be deployed using GitHub. 
+
+### References
+
+For an excellent explanation of the concept of minimisation in this context, please see: 
+
+- O’Callaghan CA (2014) OxMaR: Open Source Free Software for Online Minimization and Randomization for Clinical Trials. PLoS ONE 9(10): e110761. https://doi.org/10.1371/journal.pone.0110761
