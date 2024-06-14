@@ -1,0 +1,13 @@
+participant_id: 0
+cancer_type:
+    breast: 0
+    prostate: 0
+    colorectal: 0
+hospital_site:
+    doncaster: 0
+    sheffield: 0
+    leeds: 0
+    barnsley: 0
+    wakefield: 0
+    calderdale_huddersfield: 0
+    rotheram: 0

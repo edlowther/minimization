@@ -1,4 +1,3 @@
-# Minimization
+# Minimization on GitLab
 
-Open-source software to randomly allocate participants in clinical trials to the control or experimental arms of a study, with minimization of differences in distribution of key patient characteristics between groups. 
-
+To get started, please enter trial participant data in `new-participant-data.yaml`
