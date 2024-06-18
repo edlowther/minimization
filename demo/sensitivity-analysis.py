@@ -71,7 +71,7 @@ chart_df['class'] = chart_df['category'].apply(lambda value: lookup[value])
 chart_df['minimisation_weight'] = chart_df['minimisation_weight'].astype(str)
 chart_df = chart_df.groupby(['allocation', 'class', 'category', 'minimisation_weight'])['count'].sum().reset_index()
 p = sns.catplot(chart_df, x='count', y='category', col='class', hue='allocation', kind='bar', row='minimisation_weight', 
-                     sharey=False, color='lightblue', margin_titles=True, height=3.6)
+                     sharey=False, palette='husl', margin_titles=True, height=3.6)
 p.savefig(f'./demo/chart-{commit_hash}.png')
 
 with open('./demo/sensitivity-analysis.md') as f:
