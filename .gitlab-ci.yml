@@ -14,6 +14,8 @@ initialize-project:
     - source venv/bin/activate
     - pip install -r requirements.txt
   script: 
+    - git config --global user.name edlowther
+    - git config --global user.email 21758142-edlowther@users.noreply.gitlab.com
     - git remote set-url origin https://edlowther:$ACCESS_TOKEN@gitlab.com/edlowther/minimization
     - git checkout -b gitlab
     - python initialize.py
