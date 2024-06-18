@@ -34,7 +34,7 @@ initialize-project:
     - git add allocations.csv new-participant-data.yaml
     - git rm initialize-project.yaml
     - git commit -m "Prevent project being initialized more than once"
-    - git push origin gitlab
+    - git push origin gitlab -o ci.skip
 
 add-new-participant-to-existing-trial:
   only: 
