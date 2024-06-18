@@ -38,7 +38,7 @@ add-new-participant-to-existing-trial:
   image: python:latest
   cache:
     paths:
-        - .cache/pip
+        - ./.cache/pip
   only: 
     changes: 
       - new-participant-data.yaml
@@ -50,7 +50,8 @@ add-new-participant-to-existing-trial:
     - source venv/bin/activate
     - pip install -r requirements.txt
   script:
-    - echo ${CI_COMMIT_SHA:0:8}
+    - git config --global user.name edlowther
+    - git config --global user.email 21758142-edlowther@users.noreply.gitlab.com
     - git remote set-url origin https://edlowther:$ACCESS_TOKEN@gitlab.com/edlowther/minimization
     - git checkout -b gitlab
     - if [ -f chart* ] ; then
