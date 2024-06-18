@@ -2,3 +2,4 @@ participant_id,value_1,value_2,value_3,value_a,value_b,value_c,value_d,value_x,v
 2,1,0,0,0,0,1,0,1,0,Control
 3,0,1,0,1,0,0,0,1,0,Control
 1,0,0,1,0,0,0,1,0,1,Intervention
+4,0,1,0,1,0,0,0,0,1,Intervention
