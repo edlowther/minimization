@@ -6,7 +6,7 @@ Open-source software to randomly allocate participants in clinical trials to the
 
 This software was deployed inside UCL's Trusted Research Environment (the [Data Safe Haven](https://www.ucl.ac.uk/isd/services/file-storage-sharing/data-safe-haven-dsh)) on a secure instance of GitLab. 
 
-To review the code, please see the `gitlab` [branch of this repository](https://github.com/edlowther/minimization/tree/gitlab).
+To review the code, please see the `production` [branch of this repository](https://github.com/edlowther/minimization/tree/production).
 
 Full details on how to configure an instance of GitLab to run this code will be published here in due course, along with a separate branch containing an alternative version of the software that can be deployed on GitHub. 
 
