@@ -1,8 +1,8 @@
 # Minimization
-## New participant with id 3 assigned to: Control
+## New participant with id 1 assigned to: Intervention
 
-Total number of participants allocated so far: 2
+Total number of participants allocated so far: 3
 
-Of which 2 are in the Control group and 0 are in the Intervention group
+Of which 2 are in the Control group and 1 are in the Intervention group
 ### Updated distribution of trial participants:
-![Chart](./chart_51da8e55.png)
+![Chart](./chart_b44184d1.png)
