@@ -1,13 +1,13 @@
-participant_id: 3
+participant_id: 1
 category_1:
   value_1: 0
-  value_2: 1
-  value_3: 0
+  value_2: 0
+  value_3: 1
 category_2:
-  value_a: 1
+  value_a: 0
   value_b: 0
   value_c: 0
-  value_d: 0
+  value_d: 1
 category_3:
-  value_x: 1
-  value_y: 0
+  value_x: 0
+  value_y: 1
