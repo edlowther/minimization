@@ -14,7 +14,7 @@ This repository will guide you through the configuration required to get you sta
 
 ### Usage
 
-This software was originally deployed inside UCL's Trusted Research Environment (the [Data Safe Haven](https://www.ucl.ac.uk/isd/services/file-storage-sharing/data-safe-haven-dsh)) on a secure instance of GitLab. To review the code as it was used there, please see the `production` [branch of this repository](https://github.com/edlowther/minimization/tree/production).
+This software was originally deployed inside UCL's Trusted Research Environment (the [Data Safe Haven](https://www.ucl.ac.uk/isd/services/file-storage-sharing/data-safe-haven-dsh)) on a secure instance of GitLab. To review the code as it was used there, please see [the `production` branch of this repository](https://github.com/edlowther/minimization/tree/production).
 
 To use this software for your own clinical trial, please follow these steps to customise the code:
 
@@ -42,7 +42,7 @@ To use this software for your own clinical trial, please follow these steps to c
 - Double check your configuration changes then click "Commit changes"
 - Click on pipelines, then "Verify my account", then enter the data requested to enable this project to function on GitLab
 
-The project configuration should now be complete, and you can start adding trial-specific data. Follow the instructions in the README displayed at the [root of the `gitlab` branch](./-/tree/gitlab).
+The project configuration should now be complete, and you can start adding trial-specific data. Follow the instructions in the README displayed at the [root of the `gitlab` branch](https://github.com/edlowther/minimization/tree/gitlab).
 
 A separate branch containing an alternative version of the software that can be deployed on GitHub will be published here in due course. 
 
