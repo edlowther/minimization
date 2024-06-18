@@ -13,6 +13,7 @@ Full details on how to configure an instance of GitLab to run this code will be 
 WIP: 
 
 - First create an account at GitLab
+- Click on pipelines, then "Verify my account"
 - ? configure ssh, only needed if developing project further
 
 ### References
