@@ -20,6 +20,12 @@ csv_column_names.append('allocation')
 with open('./new-participant-data.yaml', 'w') as f:
     dump(default_participant_data, f, sort_keys=False)
 
+with open('./demo/new-participant-data.yaml', 'w') as f:
+    dump(default_participant_data, f, sort_keys=False)
+
 with open('./allocations.csv', 'w') as f:
     f.write(','.join(csv_column_names))
 
+for proportion in ['0.0', '0.2', '0.4', '0.6', '0.8', '1.0']:
+    with open(f'./demo/allocations-{proportion}.csv', 'w') as f:
+        f.write(','.join(csv_column_names))
