@@ -4,24 +4,24 @@ Open-source software to randomly allocate participants in clinical trials to the
 
 ### Motivation
 
-While the generation of a "biased coin" that manifests the minimization algorithm is relatively straightforward, to the best of our knowledge there are no open-source implementations that can keep a record of how different trial participants have been assigned to groups over the course of a study that do not require advanced web-development skills and at least some investment in back-end infrastructure.
+While a "biased coin" that implements the minimization algorithm is relatively straightforward to generate, it is more challenging to keep a record of how this process has assigned trial participants to their respective groups over the course of a study, while enabling multiple members of a clinical trial team to access this record and enter new trial participants' data, whenever they need to do so.
 
-Our approach is to make use of `git`, which - along with the server-side tools available on its dominant web-based platforms free of charge - is extremely well suited to this task.
+It is also vital that data of this nature is not able to be seen by the wrong people, and that nobody can edit the record without the approval of the study team.
+
+Using a tool like `git` in combination with the web-based git platforms that make accessing and sharing files straightforward, provide the backend infrastructure to run the code which flips the biased coin, and also handle user authentication for your team, is ideally suited to this task.
 
 This repository will guide you through the configuration required to get you started on your own project. 
 
 ### Usage
 
-This software was deployed inside UCL's Trusted Research Environment (the [Data Safe Haven](https://www.ucl.ac.uk/isd/services/file-storage-sharing/data-safe-haven-dsh)) on a secure instance of GitLab. 
+This software was originally deployed inside UCL's Trusted Research Environment (the [Data Safe Haven](https://www.ucl.ac.uk/isd/services/file-storage-sharing/data-safe-haven-dsh)) on a secure instance of GitLab. To review the code as it was used there, please see the `production` [branch of this repository](https://github.com/edlowther/minimization/tree/production).
 
-To review the code as it was used there, please see the `production` [branch of this repository](https://github.com/edlowther/minimization/tree/production).
-
-To run a customised version of this software for your own clinical trial, please follow these steps:
+To use this software for your own clinical trial, please follow these steps to customise the code:
 
 - First create an account on [GitLab](https://about.gitlab.com/) - if you are new to the platform you may wish to start with the free trial option
-- Enter your details, then click on "Import" for your first project
-- Your project will need to be assigned to a "group name", enter something apt then click on "Repository by URL"
-- Enter the url: https://github.com/edlowther/minimization.git
+- Enter your details, then click on "Import" your first project
+- Your project will need to be assigned to a "group name", enter something appropriate
+- Then click on "Repository by URL" and enter: https://github.com/edlowther/minimization.git
 - Leave "Mirror repository" unchecked, and give the project a name and a "slug" e.g. `minimization` for both
 - Set the visibility level - "Private" may be a good choice if real patient data is involved (even if it is anonymized), then click "Create project"
 - Once your project has been created, click on "Settings" in the left-hand navigation bar, then "Access Tokens"
