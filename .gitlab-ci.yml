@@ -43,7 +43,6 @@ add-new-participant-to-existing-trial:
   variables: 
     GIT_STRATEGY: clone
   script:
-    - git checkout -b gitlab
     - if [ -f chart* ] ; then
     -   git rm chart*
     - fi
