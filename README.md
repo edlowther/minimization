@@ -10,6 +10,11 @@ To review the code, please see the `gitlab` [branch of this repository](https://
 
 Full details on how to configure an instance of GitLab to run this code will be published here in due course, along with a separate branch containing an alternative version of the software that can be deployed on GitHub. 
 
+WIP: 
+
+- First create an account at GitLab
+- ? configure ssh, only needed if developing project further
+
 ### References
 
 For an excellent explanation of the concept of minimisation in this context, please see: 
