@@ -2,7 +2,7 @@ initialize-project:
   image: python:latest
   cache:
     paths:
-        - .cache/pip
+        - ./.cache/pip
   only: 
     changes: 
       - initialize-project.yaml
