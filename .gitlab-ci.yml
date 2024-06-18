@@ -1,0 +1,46 @@
+add-new-participant-to-existing-trial:
+  only: 
+    changes: 
+      - new-participant-data.yaml
+  variables: 
+    GIT_STRATEGY: clone
+  before_script: 
+    - conda activate minim
+  script:
+    - echo ${CI_COMMIT_SHA:0:8}
+    - git remote set-url origin https://edlowther:$ACCESS_TOKEN@gitlab.com/edlowther/minimization
+    - git checkout -b main
+    - if [ -f chart* ] ; then
+    -   git rm chart*
+    - fi
+    - python main.py ${CI_COMMIT_SHA:0:8}
+    - git status
+    - git add README.md allocations.csv 
+    - if [ -f chart* ] ; then
+    -   git add chart*
+    - fi
+    - git commit -m "Add new trial participant"
+    - git push origin main
+
+run-new-sensitivity-analysis: 
+  only: 
+    changes: 
+      - demo/change-me-to-run.yaml
+  variables: 
+    GIT_STRATEGY: clone
+  before_script: 
+    - conda activate minim
+  script: 
+    - if [ -f demo/chart* ] ; then
+    -   git rm demo/chart*
+    - fi
+    - python demo/sensitivity-analysis.py ${CI_COMMIT_SHA:0:8}
+    - git remote set-url origin https://edlowther:$ACCESS_TOKEN@gitlab.com/edlowther/minimization
+    - git checkout -b main
+    - git status
+    - git add demo/sensitivity-analysis.md
+    - if [ -f demo/chart* ] ; then
+    -   git add demo/chart*
+    - fi
+    - git commit -m "Update sensitivity analysis charts"
+    - git push origin main
