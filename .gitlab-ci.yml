@@ -1,5 +1,5 @@
 default:
-  image: python:latest
+  image: python:3.11-slim
   cache:
     paths:
         - .cache/pip
