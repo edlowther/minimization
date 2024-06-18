@@ -6,5 +6,5 @@ category_1:
 category_2:
   value_a: 0
   value_b: 0
-  value_c: 1
-  value_d: 0 
+  value_c: 0
+  value_d: 1
