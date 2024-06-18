@@ -1,23 +1,25 @@
-initialize-project: 
+default:
   image: python:latest
   cache:
     paths:
         - ./.cache/pip
-  only: 
-    changes: 
-      - initialize-project.yaml
-  variables: 
-    GIT_STRATEGY: clone
   before_script: 
     - pip install virtualenv
     - virtualenv venv
     - source venv/bin/activate
     - pip install -r requirements.txt
-  script: 
     - git config --global user.name edlowther
     - git config --global user.email 21758142-edlowther@users.noreply.gitlab.com
     - git remote set-url origin https://edlowther:$ACCESS_TOKEN@gitlab.com/edlowther/minimization
     - git checkout -b gitlab
+
+initialize-project:
+  only:
+    changes:
+      - initialize-project.yaml
+  variables:
+    GIT_STRATEGY: clone
+  script:
     - python initialize.py
     - if [ -f demo/chart* ] ; then
     -   git rm demo/chart*
@@ -35,24 +37,12 @@ initialize-project:
     - git push origin gitlab
 
 add-new-participant-to-existing-trial:
-  image: python:latest
-  cache:
-    paths:
-        - ./.cache/pip
   only: 
     changes: 
       - new-participant-data.yaml
   variables: 
     GIT_STRATEGY: clone
-  before_script: 
-    - pip install virtualenv
-    - virtualenv venv
-    - source venv/bin/activate
-    - pip install -r requirements.txt
   script:
-    - git config --global user.name edlowther
-    - git config --global user.email 21758142-edlowther@users.noreply.gitlab.com
-    - git remote set-url origin https://edlowther:$ACCESS_TOKEN@gitlab.com/edlowther/minimization
     - git checkout -b gitlab
     - if [ -f chart* ] ; then
     -   git rm chart*
