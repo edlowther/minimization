@@ -1,3 +1,35 @@
+initialize-project: 
+  image: python:latest
+  cache:
+    paths:
+        - .cache/pip
+  only: 
+    changes: 
+      - initialize-project.yaml
+  variables: 
+    GIT_STRATEGY: clone
+  before_script: 
+    - pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
+    - pip install -r requirements.txt
+  script: 
+    - git remote set-url origin https://edlowther:$ACCESS_TOKEN@gitlab.com/edlowther/minimization
+    - git checkout -b gitlab
+    - python initialize.py
+    - head allocations.csv
+    - if [ -f demo/chart* ] ; then
+    -   git rm demo/chart*
+    - fi
+    - python demo/sensitivity-analysis.py ${CI_COMMIT_SHA:0:8}
+    - git status
+    - git add demo/sensitivity-analysis.md
+    - if [ -f demo/chart* ] ; then
+    -   git add demo/chart*
+    - fi
+    - git commit -m "Update sensitivity analysis charts"
+    - git push origin main
+
 add-new-participant-to-existing-trial:
   image: python:latest
   cache:
@@ -27,27 +59,4 @@ add-new-participant-to-existing-trial:
     -   git add chart*
     - fi
     - git commit -m "Add new trial participant"
-    - git push origin main
-
-run-new-sensitivity-analysis: 
-  only: 
-    changes: 
-      - demo/change-me-to-run.yaml
-  variables: 
-    GIT_STRATEGY: clone
-  before_script: 
-    - conda activate minim
-  script: 
-    - if [ -f demo/chart* ] ; then
-    -   git rm demo/chart*
-    - fi
-    - python demo/sensitivity-analysis.py ${CI_COMMIT_SHA:0:8}
-    - git remote set-url origin https://edlowther:$ACCESS_TOKEN@gitlab.com/edlowther/minimization
-    - git checkout -b gitlab
-    - git status
-    - git add demo/sensitivity-analysis.md
-    - if [ -f demo/chart* ] ; then
-    -   git add demo/chart*
-    - fi
-    - git commit -m "Update sensitivity analysis charts"
     - git push origin main
