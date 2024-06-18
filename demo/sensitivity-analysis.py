@@ -40,14 +40,13 @@ for participant_id in range(1, 101):
     with open(source_filename, 'w') as f:
         safe_dump(new_participant_data, f)
     for minimisation_weight in minimisation_weights:
-        expected_yaml_file_keys = ['participant_id', 'cancer_type', 'hospital_site']
         allocations_filepath = f'./demo/allocations-{minimisation_weight}.csv'
 
         if new_demo:
             allocations_df = pd.read_csv(allocations_filepath)
             allocations_df.head(0).to_csv(allocations_filepath, index=False)
 
-        data_loader = DataLoader(source_filename, allocations_filepath, expected_yaml_file_keys)
+        data_loader = DataLoader(source_filename, allocations_filepath, new_participant_data.keys())
         data_loaded = True
 
         allocation_handler = AllocationHandler(data_loader, minimisation_weight)
