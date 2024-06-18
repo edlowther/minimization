@@ -30,7 +30,7 @@ initialize-project:
     -   git add demo/chart*
     - fi
     - git commit -m "Update sensitivity analysis charts"
-    - git push origin main
+    - git push origin gitlab
 
 add-new-participant-to-existing-trial:
   image: python:latest
@@ -61,4 +61,4 @@ add-new-participant-to-existing-trial:
     -   git add chart*
     - fi
     - git commit -m "Add new trial participant"
-    - git push origin main
+    - git push origin gitlab
