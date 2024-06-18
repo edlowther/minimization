@@ -12,10 +12,11 @@ add-new-participant-to-existing-trial:
     - pip install virtualenv
     - virtualenv venv
     - source venv/bin/activate
+    - pip install -r requirements.txt
   script:
     - echo ${CI_COMMIT_SHA:0:8}
     - git remote set-url origin https://edlowther:$ACCESS_TOKEN@gitlab.com/edlowther/minimization
-    - git checkout -b main
+    - git checkout -b gitlab
     - if [ -f chart* ] ; then
     -   git rm chart*
     - fi
@@ -42,7 +43,7 @@ run-new-sensitivity-analysis:
     - fi
     - python demo/sensitivity-analysis.py ${CI_COMMIT_SHA:0:8}
     - git remote set-url origin https://edlowther:$ACCESS_TOKEN@gitlab.com/edlowther/minimization
-    - git checkout -b main
+    - git checkout -b gitlab
     - git status
     - git add demo/sensitivity-analysis.md
     - if [ -f demo/chart* ] ; then
