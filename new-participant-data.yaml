@@ -1,4 +1,4 @@
-participant_id: 1
+participant_id: 2
 category_1:
   value_1: 1
   value_2: 0
@@ -9,5 +9,5 @@ category_2:
   value_c: 1
   value_d: 0
 category_3:
-  value_x: 0
-  value_y: 1
+  value_x: 1
+  value_y: 0
