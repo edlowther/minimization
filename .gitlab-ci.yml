@@ -19,7 +19,6 @@ initialize-project:
     - git remote set-url origin https://edlowther:$ACCESS_TOKEN@gitlab.com/edlowther/minimization
     - git checkout -b gitlab
     - python initialize.py
-    - head allocations.csv
     - if [ -f demo/chart* ] ; then
     -   git rm demo/chart*
     - fi
@@ -30,6 +29,9 @@ initialize-project:
     -   git add demo/chart*
     - fi
     - git commit -m "Update sensitivity analysis charts"
+    - git add allocations.csv new-participant-data.yaml
+    - git rm initialize-project.yaml
+    - git commit -m "Prevent project being initialized more than once"
     - git push origin gitlab
 
 add-new-participant-to-existing-trial:
