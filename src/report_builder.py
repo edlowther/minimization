@@ -24,9 +24,9 @@ class ReportBuilder():
         chart_df['class'] = chart_df['category'].apply(lambda value: classname_lookup[value])
         chart_df = chart_df.groupby(['allocation', 'class', 'category'])['count'].sum().reset_index()
         p = sns.catplot(chart_df, x='count', y='category', col='class', hue='allocation', kind='bar', 
-                        sharey=False, color='lightblue', margin_titles=True, height=2.8);
+                        sharey=False, palette='Paired', margin_titles=True, height=2.8);
         timestamp = time.strftime('%d/%m/%Y %H:%M:%S')
-        p.fig.text(0, 0, f'Updated: {timestamp}')
+        p.figure.text(0, 0, f'Updated: {timestamp}')
         p.savefig(f'./chart_{self.commit_hash}.png')
         self.output.append('### Updated distribution of trial participants:')
         self.output.append(f'![Chart](./chart_{self.commit_hash}.png)')
@@ -40,17 +40,6 @@ class ReportBuilder():
         self.output.append(
             f'Of which {control_n} are in the Control group and {intervention_n} are in the Intervention group'
         )
-    
-    def make_table(self, allocations_df):
-        """Generate a markdown table so that research team can easily look up allocation by participant id"""
-        self.output.append('\n|Id|Cancer type|Hospital|Allocation|')
-        self.output.append('|---:|:---|:---|:---|')
-        for _, row in allocations_df.sort_values('participant_id').iterrows():
-            mask = [i for i in row.index if i not in ['participant_id', 'allocation']]
-            masked_row = row[mask]
-            filtered_row = masked_row[masked_row > 0]
-            cancer_type, hospital = filtered_row.index
-            self.output.append(f"|{row['participant_id']}|{cancer_type}|{hospital}|{row['allocation']}|")
 
     def write_report(self): 
         """Output the finished report as `README.md`"""
