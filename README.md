@@ -1,8 +1,8 @@
 # Minimization
-## Missing category or categories in new participant data: ['cancer_type', 'hospital_site']
-Total number of participants allocated so far: 0
+## New participant with id 2 assigned to: Control
 
-Of which 0 are in the Control group and 0 are in the Intervention group
+Total number of participants allocated so far: 1
 
-|Id|Cancer type|Hospital|Allocation|
-|---:|:---|:---|:---|
+Of which 1 are in the Control group and 0 are in the Intervention group
+### Updated distribution of trial participants:
+![Chart](./chart_e6d70b6c.png)
