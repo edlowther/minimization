@@ -2,7 +2,7 @@ default:
   image: python:latest
   cache:
     paths:
-        - ./.cache/pip
+        - .cache/pip
   before_script: 
     - pip install virtualenv
     - virtualenv venv
@@ -12,6 +12,9 @@ default:
     - git config --global user.email 21758142-edlowther@users.noreply.gitlab.com
     - git remote set-url origin https://edlowther:$ACCESS_TOKEN@gitlab.com/edlowther/minimization
     - git checkout -b gitlab
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 initialize-project:
   only:
